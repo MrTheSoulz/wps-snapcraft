@@ -14,7 +14,7 @@ grade: stable
 parts:
 
   wps:
-    source: http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_${SNAP_VERSION}_amd64.deb
+    source: http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_$SNAP_VERSION_amd64.deb
     plugin: dump
     stage-packages: [libpng16-16]
 
