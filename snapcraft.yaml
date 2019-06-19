@@ -45,17 +45,14 @@ apps:
   et:
     command: usr/bin/et
     desktop: gui/et.desktop
-    plugs:
-      - [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
+    plugs: [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
     
   wpp:
     command: usr/bin/wpp
     desktop: gui/wpp.desktop
-    plugs:
-      - [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
+    plugs: [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
     
   wps:
     command: usr/bin/wps
     desktop: gui/wps.desktop
-    plugs:
-      - [gsettings, home, pulseaudio, unity7, x11, opengl, cups-control, alsa, desktop]
+    plugs: [gsettings, home, pulseaudio, unity7, x11, opengl, cups-control, alsa, desktop]
