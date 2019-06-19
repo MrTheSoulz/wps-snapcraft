@@ -1,0 +1,38 @@
+name: WPS-MTS
+version: 11.1.0.8392
+summary:  WPS Office Suite 
+description: |
+   WPS office
+
+architectures:
+  - amd64
+  
+confinement: strict
+grade: stable
+
+parts:
+
+  wps:
+    source: http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_${SNAP_VERSION}_amd64.deb
+    plugin: dump
+    stage-packages: [libpng16-16]
+
+apps:
+
+  et:
+    command: usr/bin/et
+    desktop: gui/et.desktop
+    plugs:
+      - [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
+    
+  wpp:
+    command: usr/bin/wpp
+    desktop: gui/wpp.desktop
+    plugs:
+      - [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
+    
+  wps:
+    command: usr/bin/wps
+    desktop: gui/wps.desktop
+    plugs:
+      - [gsettings, home, pulseaudio, unity7, x11, opengl, cups-control, alsa, desktop]
