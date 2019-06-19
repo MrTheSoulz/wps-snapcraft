@@ -1,6 +1,7 @@
 name: wps-mts
 version: 11.1.0.8392
-summary:  WPS Office Suite 
+core: 18
+summary:  WPS Office Suite
 description: |
    WPS office
 
@@ -16,6 +17,28 @@ parts:
     source: http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_${SNAP_VERSION}_amd64.deb
     plugin: dump
     stage-packages: [libpng16-16]
+
+plugs:
+
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes:gtk-3-themes
+    
+  gtk-2-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes:gtk-2-themes
+    
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes:icon-themes
+    
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes:sounds-themes
 
 apps:
 
