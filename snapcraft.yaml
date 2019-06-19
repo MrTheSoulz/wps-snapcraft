@@ -1,6 +1,6 @@
 name: wps-mts
 version: 11.1.0.8392
-core: 18
+base: core18
 summary:  WPS Office Suite
 description: |
    WPS office
