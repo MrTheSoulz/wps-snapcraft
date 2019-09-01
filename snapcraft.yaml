@@ -13,10 +13,20 @@ grade: stable
 
 parts:
 
+  desktop-gnome-platform:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-depth: 1
+    source-subdir: gtk
+    plugin: make
+    build-packages: [build-essential, libgtk-3-dev]
+    override-build: |
+      snapcraftctl build
+      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+
   wps:
     source: http://kdl.cc.ksosoft.com/wps-community/download/8722/wps-office_11.1.0.8722_amd64.deb
     plugin: dump
-    stage-packages: [libpng16-16]
+    stage-packages: [libpng16-16, libfreetype6, 'libatk1.0-0', libcairo2, libdatrie1, libfontconfig1, 'libgdk-pixbuf2.0-0', libgl1, libglvnd0, libglx0, libgraphite2-3, libharfbuzz0b, libice6, 'libpango-1.0-0', 'libpangocairo-1.0-0', 'libpangoft2-1.0-0', 'libpixman-1-0', libsm6, libthai0, 'libx11-6', 'libx11-xcb1', libxau6, 'libxcb-render0', 'libxcb-shm0', libxcb1, libxcomposite1, libxcursor1, libxdamage1, libxdmcp6, libxext6, libxfixes3, libxi6, libxrandr2, libxrender1, libxtst6]
 
 plugs:
 
@@ -32,7 +42,7 @@ plugs:
     
   icon-themes:
     interface: content
-    target: $SNAP/dafta-dir/icons
+    target: $SNAP/data-dir/icons
     default-provider: gtk-common-themes:icon-themes
     
   sound-themes:
@@ -43,16 +53,16 @@ plugs:
 apps:
 
   et:
-    command: usr/bin/et
-    desktop: gui/et.desktop
+    command: desktop-launch $SNAP/opt/kingsoft/wps-office/office6/et
+    desktop: usr/share/applications/wps-office-et.desktop
     plugs: [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
     
   wpp:
-    command: usr/bin/wpp
-    desktop: gui/wpp.desktop
+    command: desktop-launch $SNAP/opt/kingsoft/wps-office/office6/wpp
+    desktop: usr/share/applications/wps-office-wpp.desktop
     plugs: [alsa, cups-control, desktop, home, opengl, pulseaudio, removable-media, wayland, x11]
     
   wps:
-    command: usr/bin/wps
-    desktop: gui/wps.desktop
+    command: desktop-launch $SNAP/opt/kingsoft/wps-office/office6/wps
+    desktop: usr/share/applications/wps-office-wps.desktop
     plugs: [gsettings, home, pulseaudio, unity7, x11, opengl, cups-control, alsa, desktop]
