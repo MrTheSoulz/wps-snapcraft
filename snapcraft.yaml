@@ -32,7 +32,7 @@ plugs:
     
   icon-themes:
     interface: content
-    target: $SNAP/data-dir/icons
+    target: $SNAP/dafta-dir/icons
     default-provider: gtk-common-themes:icon-themes
     
   sound-themes:
