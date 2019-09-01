@@ -1,5 +1,5 @@
 name: wps-mts
-version: 11.1.0.8392
+version: 11.1.0.8722
 base: core18
 summary:  WPS Office Suite
 description: |
@@ -14,7 +14,7 @@ grade: stable
 parts:
 
   wps:
-    source: http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_$SNAP_VERSION_amd64.deb
+    source: http://kdl.cc.ksosoft.com/wps-community/download/8722/wps-office_11.1.0.8722_amd64.deb
     plugin: dump
     stage-packages: [libpng16-16]
 
